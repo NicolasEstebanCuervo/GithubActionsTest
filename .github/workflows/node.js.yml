@@ -15,5 +15,6 @@ jobs:
               with:
                   node-version: "20"
                   cache: "npm"
-            - run: npm cli --legacy-peer-deps
+            - run: npm ci --legacy-peer-deps --no-fund --no-audit
+            - run: npm run lint
             - run: npm run build
