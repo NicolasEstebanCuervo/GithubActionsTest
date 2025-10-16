@@ -10,7 +10,7 @@ on:
         branches: ["main"]
 
 jobs:
-    platzi:
+    tester:
         runs-on: ubuntu-latest
 
         strategy:
@@ -25,3 +25,4 @@ jobs:
             - run: npm ci --legacy-peer-deps --no-fund --no-audit
             - run: npm run test
             - run: npm run build
+            - run: npm run deploy
