@@ -1,0 +1,33 @@
+name: Test Workflow Dispatch Inputs
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Select environment to deploy"
+                required: true
+                default: "dev"
+                type: choice
+                options:
+                    - dev
+                    - qa
+                    - prod
+            message:
+                description: "A custom message"
+                required: false
+                default: "Hello from GitHub Actions!"
+            dry_run:
+                description: "Run in dry mode?"
+                required: true
+                default: false
+                type: boolean
+
+jobs:
+    show-inputs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print inputs
+              run: |
+                  echo "Environment: ${{ github.event.inputs.environment }}"
+                  echo "Message: ${{ github.event.inputs.message }}"
+                  echo "Dry run: ${{ github.event.inputs.dry_run }}"
