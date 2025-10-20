@@ -42,6 +42,7 @@ export const Calculator = () => {
                     {equalSign}
                 </button>
             </div>
+            <div>This is my first app using github pages and github action</div>
         </div>
     );
 };
